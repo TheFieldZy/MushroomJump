@@ -17,13 +17,13 @@ public class MushroomJump extends JavaPlugin{
 	
 	@Override
 	public void onDisable(){
-		System.out.println("SuperHigh disabled!");
+		log.info("MushroomJump is disabled!");
 		
 	}
 	
 	@Override
 	public void onEnable(){
-		System.out.println("SuperHigh Enabled!");
+		log.info("MushroomJump is enabled!");
 		
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvent(Event.Type.PLAYER_MOVE, playerListener, Event.Priority.Normal, this);

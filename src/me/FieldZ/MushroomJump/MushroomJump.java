@@ -15,12 +15,18 @@ public class MushroomJump extends JavaPlugin{
 	private final MushroomJumpPlayerListener playerListener = new MushroomJumpPlayerListener(this);
 	private final MushroomJumpEntityListener entityListener = new MushroomJumpEntityListener(this);
 	
+	/**
+	 * Method for when the plugin disables
+	 */
 	@Override
 	public void onDisable(){
 		log.info("MushroomJump is disabled!");
 		
 	}
 	
+	/**
+	 * Method for when MushroomJump is enabled; PlayerListeners are ready upped!
+	 */
 	@Override
 	public void onEnable(){
 		log.info("MushroomJump is enabled!");

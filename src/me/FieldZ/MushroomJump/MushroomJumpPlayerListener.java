@@ -13,11 +13,19 @@ import org.bukkit.util.Vector;
 
 public class MushroomJumpPlayerListener extends PlayerListener{
 	public MushroomJump plugin;
-	
+	/**
+	 * Constructor for PlayerListener
+	 * @param instance Grabs an instance of MushroomJump
+	 */
 	public MushroomJumpPlayerListener(MushroomJump instance){
 		plugin = instance;
 	}
 
+	/**
+	 * Calls when player moves
+	 * If a player moves on to a mushroom block he is catapulted up in the air! 
+	 * @param ev A PlayerMoveEvent object
+	 */
 	@Override
 	public void onPlayerMove(PlayerMoveEvent ev){
 		Player player = ev.getPlayer();
@@ -28,12 +36,13 @@ public class MushroomJumpPlayerListener extends PlayerListener{
 		Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 		
 		if(block.getType() == Material.HUGE_MUSHROOM_1){
-			Vector dir = player.getLocation().getDirection();
-			Vector vec = new Vector(0D, 1.5D, 0D);
+			Vector dir = player.getLocation().getDirection().multiply(1.75);
+			Vector vec = new Vector(dir.getX(), 1.5D, dir.getZ());
 			player.setVelocity(vec);
 		}
 		if(block.getType() == Material.HUGE_MUSHROOM_2){
-			Vector vec = new Vector(0D, 2.0D, 0D);
+			Vector dir = player.getLocation().getDirection().multiply(1.75);
+			Vector vec = new Vector(dir.getX(), 2.0D, dir.getZ());
 			player.setVelocity(vec);
 		}
 		

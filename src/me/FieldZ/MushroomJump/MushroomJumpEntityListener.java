@@ -11,10 +11,19 @@ import org.bukkit.event.entity.EntityListener;
 public class MushroomJumpEntityListener extends EntityListener{
 	 MushroomJump plugin;
 	 
+	 /**
+	  * Constructor for EntityListener
+	  * @param instance grabs an instance of MushroomJump
+	  */
 	 public MushroomJumpEntityListener(MushroomJump instance){
 		 plugin = instance;
 	 }
 	 
+	 /**
+	  * Called when an entity is damaged
+	  * Checks if player and if true, will not deal fall damage on hugemushrooms
+	  * @param ev A EntityDamageEvent object
+	  */
 	 public void onEntityDamage(EntityDamageEvent ev){
 		 if(ev.getEntity() instanceof Player) {
 			 Player player = (Player) ev.getEntity();

@@ -30,7 +30,7 @@ public class MushroomJumpPlayerListener extends PlayerListener{
 	public void onPlayerMove(PlayerMoveEvent ev){
 		Player player = ev.getPlayer();
 		
-		if(ev.isCancelled()||ev.getFrom().getBlock().getLocation()==ev.getFrom().getBlock().getLocation())
+		if(ev.isCancelled()||ev.getFrom().getBlock().getLocation()==ev.getTo().getBlock().getLocation())
 		    return;
 		
 		Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);

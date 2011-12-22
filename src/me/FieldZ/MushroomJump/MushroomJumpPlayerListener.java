@@ -29,9 +29,9 @@ public class MushroomJumpPlayerListener extends PlayerListener{
 	@Override
 	public void onPlayerMove(PlayerMoveEvent ev){
 		Player player = ev.getPlayer();
+		if (!plugin.hasPermissions(player, "MushroomJump.affected")) return;
 		
-		if(ev.isCancelled()||ev.getFrom().getBlock().getLocation()==ev.getTo().getBlock().getLocation())
-		    return;
+		if(ev.isCancelled()||ev.getFrom().getBlock().getLocation()==ev.getTo().getBlock().getLocation()) return;
 		
 		Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 		

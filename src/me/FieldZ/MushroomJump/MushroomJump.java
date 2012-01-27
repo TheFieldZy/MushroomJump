@@ -2,10 +2,7 @@ package me.FieldZ.MushroomJump;
 
 import java.util.logging.Logger;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
@@ -39,8 +36,8 @@ public class MushroomJump extends JavaPlugin{
 	public void onEnable(){
 		// Registering events
 		PluginManager pm = this.getServer().getPluginManager();
-		pm.registerEvent(Event.Type.PLAYER_MOVE, playerListener, Event.Priority.Normal, this);
-		pm.registerEvent(Event.Type.ENTITY_DAMAGE, entityListener, Event.Priority.Normal, this);
+		pm.registerEvents(playerListener, this);
+		pm.registerEvents(entityListener, this);
 		
 		// Connect with the permissions system
 		setupPermissions();

@@ -1,11 +1,16 @@
 package me.FieldZ.MushroomJump;
 
+import org.bukkit.Location;
+
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.Dispenser;
 import org.bukkit.entity.Player;
-import org.bukkit.event.*;
-import org.bukkit.event.player.*;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 
 public class MushroomJumpPlayerListener implements Listener{
@@ -14,7 +19,7 @@ public class MushroomJumpPlayerListener implements Listener{
 	 * Constructor for PlayerListener
 	 * @param instance Grabs an instance of MushroomJump
 	 */
-	public MushroomJumpPlayerListener(MushroomJump instance){
+	public MushroomJumpPlayerListener(MushroomJump instance) {
 		plugin = instance;
 	}
 
@@ -31,11 +36,11 @@ public class MushroomJumpPlayerListener implements Listener{
 				Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 				if (block.getType() == Material.HUGE_MUSHROOM_1) {
 					Vector dir = player.getLocation().getDirection().multiply(1.75);
-					Vector vec = new Vector(dir.getX(), 1.5D, dir.getZ());
+					Vector vec = new Vector(dir.getX(), 2.5D, dir.getZ());
 					player.setVelocity(vec);
 				} else if(block.getType() == Material.HUGE_MUSHROOM_2) {
 					Vector dir = player.getLocation().getDirection().multiply(1.75);
-					Vector vec = new Vector(dir.getX(), 2.0D, dir.getZ());
+					Vector vec = new Vector(dir.getX(), 3.0D, dir.getZ());
 					player.setVelocity(vec);
 				}
 			}

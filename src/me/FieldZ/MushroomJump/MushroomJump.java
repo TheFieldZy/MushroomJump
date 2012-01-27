@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nijiko.permissions.PermissionHandler;
@@ -13,27 +14,26 @@ import com.nijikokun.bukkit.Permissions.Permissions;
 
 public class MushroomJump extends JavaPlugin{
 	
-	Logger log = Logger.getLogger("Minecraft");
+	Logger log = Logger.getLogger("MushroomJump");
 	
 	private final MushroomJumpPlayerListener playerListener = new MushroomJumpPlayerListener(this);
 	private final MushroomJumpEntityListener entityListener = new MushroomJumpEntityListener(this);
 	
 	// Permissions Integration
-    private static PermissionHandler Permissions;
-	
+	private static PermissionHandler Permissions;
 	/**
 	 * Method for when the plugin disables
 	 */
 	@Override
-	public void onDisable(){
+	public void onDisable() {
 		log.info("MushroomJump is disabled!");
 	}
 	
 	/**
-	 * Method for when MushroomJump is enabled; PlayerListeners are ready upped!
+	 * Method for when MushroomJump is enabled; Listeners Enabled as well
 	 */
 	@Override
-	public void onEnable(){
+	public void onEnable() {
 		// Registering events
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(playerListener, this);
@@ -47,12 +47,12 @@ public class MushroomJump extends JavaPlugin{
 	}
 	
 	// Permissions Methods
-    private void setupPermissions() {
+	private void setupPermissions() {
         Plugin permissions = this.getServer().getPluginManager().getPlugin("Permissions");
 
         if (Permissions == null) {
             if (permissions != null) {
-                Permissions = ((Permissions)permissions).getHandler();
+                Permissions = ((Permissions) permissions).getHandler();
             } else {
             }
         }
